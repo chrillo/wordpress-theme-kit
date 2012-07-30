@@ -1,7 +1,7 @@
 /*
-Theme Name: Invisible
+Theme Name: Wordpress Theme Kit
 Theme URI: http://internetkultur.at
-Description: Barebonse wordpress theme to get started
+Description: Barebone wordpress theme to get started
 Version: 1
 Author: Christoph Peter
 Author URI: http://twitter.com/christoph_peter
@@ -28,3 +28,9 @@ a img { border:none }
 .clear{clear:both;zoom: 1;}
 
 
+.column{
+	float: left;
+}
+.clear{
+	clear: both;
+}
