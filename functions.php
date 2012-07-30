@@ -3,20 +3,45 @@
 
 	
 	
-	add_theme_support( 'post-thumbnails',array('post','page') );
-	add_post_type_support('page', 'excerpt');
+add_theme_support( 'post-thumbnails',array('post','page') );
+add_post_type_support('page', 'excerpt');
 	
-	// add_image_size('headerbg',760,170,true);
-
-	
-	wp_enqueue_script( 'jquery' );
-
-	register_nav_menus( array(
+register_nav_menus( array(
 		'primary' => __( 'Haupt Navigation' ),
+));
 
-	) );
+/*
+
+Register Post type
+
+register_post_type('type', array(
+	'label' => __('Type'),
+	'singular_label' => __('Kollektion'),
+	'public' => true,
+	'show_ui' => true, // UI in admin panel
+	'_builtin' => false, // It's a custom post type, not built in!
+	'_edit_link' => 'post.php?post=%d',
+	'capability_type' => 'post',
+	'hierarchical' => true,
+	'rewrite' => array("slug" => "type"), // Permalinks format
+	'supports' => array('title','excerpt','custom-fields','revisions','editor','thumbnail'),
+));
 
 
+register_taxonomy(  
+    'type-tax',  
+    'type',  
+    array(  
+        'hierarchical' => true,  
+        'label' => 'Taxonomy',  
+        'query_var' => true,  
+        'rewrite' => true  
+    )  
+);
+
+*/
+
+// add_image_size('headerbg',760,170,true);
 
 
 function ik_wp_title( $title, $separator ) {
@@ -74,5 +99,11 @@ function ik_renderClear($atts){
 	return $output;
 }
 add_shortcode('clear','ik_renderClear');
+
+function ik_script($script,$url,$deps=array(),$ver=null,$footer=false){
+	wp_register_script( $script, $url,$deps,$ver,$footer);
+    wp_enqueue_script( $script );
+}
+
 
 ?>
