@@ -10,7 +10,7 @@ register_nav_menus( array(
 		'primary' => __( 'Haupt Navigation' ),
 ));
 
-/*
+
 
 register_sidebar( array(
 		'name' => __( 'Sidebar' ),
@@ -21,7 +21,7 @@ register_sidebar( array(
 		'after_title' => '</h3>',
 	) );
 
-*/
+
 
 /*
 
