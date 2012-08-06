@@ -12,6 +12,19 @@ register_nav_menus( array(
 
 /*
 
+register_sidebar( array(
+		'name' => __( 'Sidebar' ),
+		'id' => 'side-widgets',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => "</aside>",
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	) );
+
+*/
+
+/*
+
 Register Post type
 
 register_post_type('type', array(
