@@ -280,44 +280,42 @@
 	"buffers":
 	[
 		{
-			"contents": "<?php\n\n\n	\n	\nadd_theme_support( 'post-thumbnails',array('post','page') );\nadd_post_type_support('page', 'excerpt');\n	\nregister_nav_menus( array(\n		'primary' => __( 'Haupt Navigation' ),\n));\n\n/*\n\nRegister Post type\n\nregister_post_type('type', array(\n	'label' => __('Type'),\n	'singular_label' => __('Kollektion'),\n	'public' => true,\n	'show_ui' => true, // UI in admin panel\n	'_builtin' => false, // It's a custom post type, not built in!\n	'_edit_link' => 'post.php?post=%d',\n	'capability_type' => 'post',\n	'hierarchical' => true,\n	'rewrite' => array(\"slug\" => \"type\"), // Permalinks format\n	'supports' => array('title','excerpt','custom-fields','revisions','editor','thumbnail'),\n));\n\n\nregister_taxonomy(  \n    'type-tax',  \n    'type',  \n    array(  \n        'hierarchical' => true,  \n        'label' => 'Taxonomy',  \n        'query_var' => true,  \n        'rewrite' => true  \n    )  \n);\n\n*/\n\n// add_image_size('headerbg',760,170,true);\n\n\nfunction ik_wp_title( $title, $separator ) {\n	// Don't affect wp_title() calls in feeds.\n	if ( is_feed() )\n		return $title;\n\n	global $paged, $page;\n\n	if ( is_search() ) {\n		// If we're a search, let's start over:\n		$title = sprintf( __( 'Search results for %s', 'twentyten' ), '\"' . get_search_query() . '\"' );\n		// Add a page number if we're on page 2 or more:\n		if ( $paged >= 2 )\n			$title .= \" $separator \" . sprintf( __( 'Page %s', 'twentyten' ), $paged );\n		// Add the site name to the end:\n		$title .= \" $separator \" . get_bloginfo( 'name', 'display' );\n		// We're done. Let's send the new title back to wp_title():\n		return $title;\n	}\n\n	// Otherwise, let's start by adding the site name to the end:\n	$title .= get_bloginfo( 'name', 'display' );\n\n	// If we have a site description and we're on the home/front page, add the description:\n	$site_description = get_bloginfo( 'description', 'display' );\n	if ( $site_description && ( is_home() || is_front_page() ) )\n		$title .= \" $separator \" . $site_description;\n\n	// Add a page number if necessary:\n	if ( $paged >= 2 || $page >= 2 )\n		$title .= \" $separator \" . sprintf( __( 'Page %s', 'twentyten' ), max( $paged, $page ) );\n\n	// Return the new title to wp_title():\n	return $title;\n}\nadd_filter( 'wp_title', 'ik_wp_title', 10, 2 );\n\n\nfunction ik_renderColumns($atts,$content) {\n	extract(shortcode_atts(array(\n		'class' => '',\n		'width' =>'50%'\n	), $atts));\n	$html=do_shortcode($content);\n	return \"<div class='column \".$class.\"' style='width:\".$width.\";'><div class='column-content'>\".$html.\"</div></div>\";\n}\nadd_shortcode('col','ik_renderColumns');\n\nfunction ik_renderClear($atts){\n	extract(shortcode_atts(array(\n		'class' => '',\n	), $atts));\n	$output='<div class=\"clear '.$class.'\"></div>';\n	return $output;\n}\nadd_shortcode('clear','ik_renderClear');\n\nfunction ik_script($script,$url,$deps=array(),$ver=null,$footer=false){\n	wp_register_script( $script, $url,$deps,$ver,$footer);\n    wp_enqueue_script( $script );\n}\n\n\n?>\n",
-			"file": "/Users/christophpeter/Repos/wordpress-theme-kit/functions.php",
-			"file_size": 2913,
-			"file_write_time": 1343638054000000,
+			"file": "functions.php",
 			"settings":
 			{
-				"buffer_size": 2913,
+				"buffer_size": 3259,
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"file": "ik-framework/shortcodes.php",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 4942,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/christophpeter/Repos/wordpress-theme-kit/style.css",
+			"file": "ik-framework/js/shortcodes.js",
 			"settings":
 			{
-				"buffer_size": 1051,
+				"buffer_size": 1222,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/christophpeter/Repos/wordpress-theme-kit/header.php",
+			"file": "style.css",
 			"settings":
 			{
-				"buffer_size": 781,
+				"buffer_size": 1680,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/christophpeter/Repos/wordpress-theme-kit/README",
+			"file": "README",
 			"settings":
 			{
-				"buffer_size": 42,
+				"buffer_size": 60,
 				"line_ending": "Unix"
 			}
 		}
@@ -346,6 +344,9 @@
 	},
 	"file_history":
 	[
+		"/Users/christophpeter/Repos/wordpress-theme-kit/README",
+		"/Users/christophpeter/Repos/wordpress-theme-kit/header.php",
+		"/Users/christophpeter/Repos/wordpress-theme-kit/style.css",
 		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/test/testdata.php",
 		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/test/mjam.php",
 		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/models/cart.php",
@@ -483,23 +484,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/Users/christophpeter/Repos/wordpress-theme-kit/functions.php",
+					"file": "functions.php",
 					"settings":
 					{
-						"buffer_size": 2913,
+						"buffer_size": 3259,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								213,
-								213
+								89,
+								89
 							]
 						],
 						"settings":
@@ -592,29 +593,114 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1031.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "ik-framework/shortcodes.php",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 4942,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								4537,
+								4537
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"text-indent": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"asi": true,
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 0.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -624,18 +710,130 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/Users/christophpeter/Repos/wordpress-theme-kit/style.css",
+					"file": "ik-framework/js/shortcodes.js",
 					"settings":
 					{
-						"buffer_size": 1051,
+						"buffer_size": 1222,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1049,
-								1049
+								1131,
+								1131
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"text-indent": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"asi": true,
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 0.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "style.css",
+					"settings":
+					{
+						"buffer_size": 1680,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1680,
+								1680
 							]
 						],
 						"settings":
@@ -733,130 +931,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "/Users/christophpeter/Repos/wordpress-theme-kit/header.php",
-					"settings":
-					{
-						"buffer_size": 781,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								421,
-								421
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"text-indent": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110.0
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"asi": true,
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 0.0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": false,
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"Python Django": "python"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 2.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 4,
-					"file": "/Users/christophpeter/Repos/wordpress-theme-kit/README",
+					"file": "README",
 					"settings":
 					{
-						"buffer_size": 42,
+						"buffer_size": 60,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								42,
-								42
+								60,
+								60
 							]
 						],
 						"settings":
