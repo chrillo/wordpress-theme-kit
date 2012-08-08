@@ -95,24 +95,6 @@ function ik_wp_title( $title, $separator ) {
 add_filter( 'wp_title', 'ik_wp_title', 10, 2 );
 
 
-function ik_renderColumns($atts,$content) {
-	extract(shortcode_atts(array(
-		'class' => '',
-		'width' =>'50%'
-	), $atts));
-	$html=do_shortcode($content);
-	return "<div class='column ".$class."' style='width:".$width.";'><div class='column-content'>".$html."</div></div>";
-}
-add_shortcode('col','ik_renderColumns');
-
-function ik_renderClear($atts){
-	extract(shortcode_atts(array(
-		'class' => '',
-	), $atts));
-	$output='<div class="clear '.$class.'"></div>';
-	return $output;
-}
-add_shortcode('clear','ik_renderClear');
 
 function ik_script($script,$url,$deps=array(),$ver=null,$footer=false){
 	wp_register_script( $script, $url,$deps,$ver,$footer);
