@@ -1,0 +1,1029 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"mjam",
+				"mjam_session"
+			],
+			[
+				"addre",
+				"address_id"
+			],
+			[
+				"subcho",
+				"subchoiceSet"
+			],
+			[
+				"subc",
+				"subchoice"
+			],
+			[
+				"sub",
+				"subchoice"
+			],
+			[
+				"post_",
+				"post_name"
+			],
+			[
+				"arch",
+				"archivablecarts"
+			],
+			[
+				"get_all_pro",
+				"get_all_products_json"
+			],
+			[
+				"ar",
+				"archivablecarts"
+			],
+			[
+				"not",
+				"notify"
+			],
+			[
+				"p",
+				"padding-bottom"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"op",
+				"option	Tag"
+			],
+			[
+				"m",
+				"margin"
+			],
+			[
+				"dif",
+				"difficulty-indicator"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"logo",
+				"logo-small"
+			],
+			[
+				"w",
+				"width"
+			],
+			[
+				"re",
+				"replaceState"
+			],
+			[
+				"cate",
+				"category"
+			],
+			[
+				"cat",
+				"category"
+			],
+			[
+				"total",
+				"total-price"
+			],
+			[
+				"add",
+				"add-to-cart-btn"
+			],
+			[
+				"ad",
+				"add-to-cart-label"
+			],
+			[
+				"border-",
+				"border-bottom"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"header",
+				"headercart"
+			],
+			[
+				"cl",
+				"clear"
+			],
+			[
+				"subchoic",
+				"subchoice"
+			],
+			[
+				"items",
+				"items_total"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
+				"subch",
+				"subchoice"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"getTO",
+				"getTotalPrice"
+			],
+			[
+				"getT",
+				"getTotalPrice"
+			],
+			[
+				"get",
+				"getTotal"
+			],
+			[
+				"parse",
+				"parseFloat"
+			],
+			[
+				"adi",
+				"additionalPrice"
+			],
+			[
+				"str",
+				"stripcslashes"
+			],
+			[
+				"conf",
+				"configure"
+			],
+			[
+				"Pro",
+				"ProductConfigurator"
+			],
+			[
+				"pr",
+				"products"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"confi",
+				"configure"
+			],
+			[
+				"Product",
+				"ProductSubChoice"
+			],
+			[
+				"choi",
+				"choicesEl"
+			],
+			[
+				"su",
+				"subchoices"
+			],
+			[
+				"config",
+				"configurator"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"con",
+				"configurator"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"js",
+				"json_decode"
+			],
+			[
+				"in",
+				"in_array"
+			],
+			[
+				"cont",
+				"controller_method"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"pro",
+				"product-featured-small"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"getW",
+				"getWorkSheets"
+			],
+			[
+				"ge",
+				"getDocs"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "<?php\n\n\n	\n	\nadd_theme_support( 'post-thumbnails',array('post','page') );\nadd_post_type_support('page', 'excerpt');\n	\nregister_nav_menus( array(\n		'primary' => __( 'Haupt Navigation' ),\n));\n\n/*\n\nRegister Post type\n\nregister_post_type('type', array(\n	'label' => __('Type'),\n	'singular_label' => __('Kollektion'),\n	'public' => true,\n	'show_ui' => true, // UI in admin panel\n	'_builtin' => false, // It's a custom post type, not built in!\n	'_edit_link' => 'post.php?post=%d',\n	'capability_type' => 'post',\n	'hierarchical' => true,\n	'rewrite' => array(\"slug\" => \"type\"), // Permalinks format\n	'supports' => array('title','excerpt','custom-fields','revisions','editor','thumbnail'),\n));\n\n\nregister_taxonomy(  \n    'type-tax',  \n    'type',  \n    array(  \n        'hierarchical' => true,  \n        'label' => 'Taxonomy',  \n        'query_var' => true,  \n        'rewrite' => true  \n    )  \n);\n\n*/\n\n// add_image_size('headerbg',760,170,true);\n\n\nfunction ik_wp_title( $title, $separator ) {\n	// Don't affect wp_title() calls in feeds.\n	if ( is_feed() )\n		return $title;\n\n	global $paged, $page;\n\n	if ( is_search() ) {\n		// If we're a search, let's start over:\n		$title = sprintf( __( 'Search results for %s', 'twentyten' ), '\"' . get_search_query() . '\"' );\n		// Add a page number if we're on page 2 or more:\n		if ( $paged >= 2 )\n			$title .= \" $separator \" . sprintf( __( 'Page %s', 'twentyten' ), $paged );\n		// Add the site name to the end:\n		$title .= \" $separator \" . get_bloginfo( 'name', 'display' );\n		// We're done. Let's send the new title back to wp_title():\n		return $title;\n	}\n\n	// Otherwise, let's start by adding the site name to the end:\n	$title .= get_bloginfo( 'name', 'display' );\n\n	// If we have a site description and we're on the home/front page, add the description:\n	$site_description = get_bloginfo( 'description', 'display' );\n	if ( $site_description && ( is_home() || is_front_page() ) )\n		$title .= \" $separator \" . $site_description;\n\n	// Add a page number if necessary:\n	if ( $paged >= 2 || $page >= 2 )\n		$title .= \" $separator \" . sprintf( __( 'Page %s', 'twentyten' ), max( $paged, $page ) );\n\n	// Return the new title to wp_title():\n	return $title;\n}\nadd_filter( 'wp_title', 'ik_wp_title', 10, 2 );\n\n\nfunction ik_renderColumns($atts,$content) {\n	extract(shortcode_atts(array(\n		'class' => '',\n		'width' =>'50%'\n	), $atts));\n	$html=do_shortcode($content);\n	return \"<div class='column \".$class.\"' style='width:\".$width.\";'><div class='column-content'>\".$html.\"</div></div>\";\n}\nadd_shortcode('col','ik_renderColumns');\n\nfunction ik_renderClear($atts){\n	extract(shortcode_atts(array(\n		'class' => '',\n	), $atts));\n	$output='<div class=\"clear '.$class.'\"></div>';\n	return $output;\n}\nadd_shortcode('clear','ik_renderClear');\n\nfunction ik_script($script,$url,$deps=array(),$ver=null,$footer=false){\n	wp_register_script( $script, $url,$deps,$ver,$footer);\n    wp_enqueue_script( $script );\n}\n\n\n?>\n",
+			"file": "/Users/christophpeter/Repos/wordpress-theme-kit/functions.php",
+			"file_size": 2913,
+			"file_write_time": 1343638054000000,
+			"settings":
+			{
+				"buffer_size": 2913,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/christophpeter/Repos/wordpress-theme-kit/style.css",
+			"settings":
+			{
+				"buffer_size": 1051,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/christophpeter/Repos/wordpress-theme-kit/header.php",
+			"settings":
+			{
+				"buffer_size": 781,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/christophpeter/Repos/wordpress-theme-kit/README",
+			"settings":
+			{
+				"buffer_size": 42,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/node.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/test/testdata.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/test/mjam.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/models/cart.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/test/cart.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/style.css",
+		"/Users/christophpeter/Dropbox/feinkoch_Homepage/Grafik/Links/uhr 1.tif",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/components/difficulty.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/products/meal.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/models/product.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/cart/small.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/vendor/mjam.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/head.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/controller/index.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/shop.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/logs/log_2012-07-24.txt",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/models/cart_item.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/models/address.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/test/order.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/test/address.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/models/order.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/test/index.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/test/cartitem/cartitem",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/test/address/address.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/test/cart/cart.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/test/mjam/mjam.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/test/order/order.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/products/smallcard",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/products/product.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/controller/products.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/header.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/components/productbtn.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/index/products.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/single-products.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/cart/address.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/404.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/404.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/functions.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/content-home.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/products/smallcard.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/products/difficulty",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/controller/ajax.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/vendor/klogger.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/cart/index.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/products/grid.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/taxonomy-products-category.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/products/index.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/index/featured.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/index.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/classes/controller.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/archive-products.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/archive.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/controller/order.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/index/howitworks.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/index/meals.php",
+		"/Users/christophpeter/sites/feinkoch.org/wp-content/themes/feinkoch/shop/views/components/addbtn.php",
+		"/Users/christophpeter/sites/feinkoch.org/index.php",
+		"/Users/christophpeter/Library/Application Support/Sublime Text 2/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Users/christophpeter/Library/Application Support/Sublime Text 2/Packages/User/Node.sublime-build",
+		"/Users/christophpeter/Qriously/QriouslyDeckRobot/files/client/src/modules/api.js",
+		"/Users/christophpeter/Qriously/QriouslyDeckRobot/files/client/src/app.js",
+		"/Users/christophpeter/Qriously/QriouslyDeckRobot/files/client/node.sublime-build",
+		"/Users/christophpeter/Library/Application Support/Sublime Text 2/Packages/User/node.sublime-build"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"getOn",
+			"cart_id",
+			"getItemsForMjam",
+			"getItemsAsArray",
+			"getItemsAs",
+			"archived",
+			"$archived",
+			"getBySlug",
+			"getOrderId",
+			"fromArray",
+			"isNew",
+			"cart_id",
+			"load(",
+			" $",
+			"getOne",
+			"load(",
+			"create( ",
+			"dbg",
+			"load",
+			"cookie",
+			"gericht",
+			"404",
+			"0px",
+			"stick",
+			"header-cart",
+			"logInfo",
+			"cate",
+			"logo",
+			"add-to-cart-btn",
+			"header",
+			"terminal",
+			"order-now-btn",
+			"coupon",
+			"payment",
+			"dbg",
+			"items_total",
+			"new Cart",
+			"h3"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"cart_hash",
+			"0"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/christophpeter/Repos/wordpress-theme-kit/functions.php",
+					"settings":
+					{
+						"buffer_size": 2913,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								213,
+								213
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"text-indent": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"asi": true,
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 0.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/Users/christophpeter/Repos/wordpress-theme-kit/style.css",
+					"settings":
+					{
+						"buffer_size": 1051,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1049,
+								1049
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"text-indent": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"asi": true,
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 0.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/christophpeter/Repos/wordpress-theme-kit/header.php",
+					"settings":
+					{
+						"buffer_size": 781,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								421,
+								421
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"text-indent": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"asi": true,
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 0.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 2.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/Users/christophpeter/Repos/wordpress-theme-kit/README",
+					"settings":
+					{
+						"buffer_size": 42,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								42,
+								42
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"text-indent": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"asi": true,
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 0.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"server/src/models/subscription.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/christophpeter/sites/nodejitsu/Grandcentral.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 239.0,
+	"status_bar_visible": true
+}

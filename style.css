@@ -28,9 +28,77 @@ a img { border:none }
 .clear{clear:both;zoom: 1;}
 
 
-.column{
+/*
+
+	Shortcodes 
+	-----------------------------------------------------
+	
+	- Columns
+	- Clear
+	- Horizontal Line
+	- Tabs
+
+*/
+
+
+/*
+
+	Columns
+
+*/
+.ik-column{
 	float: left;
 }
+.ik-column-content{
+	padding:10px;
+}
+
+/*
+
+	Clear	
+	
+*/
+
 .clear{
 	clear: both;
+}
+
+/*
+
+	Horizontal line
+
+*/
+
+.ik-hline{
+	width: 100%;
+	height: 1px;
+	border-bottom: 1px solid #999;
+	clear: both;
+}
+
+/*
+
+ 	Tabs 
+
+*/
+
+.ik-tabs{
+	width: 100%;
+}
+.ik-tabs .ik-tab-btns{
+	width: 100%;
+}
+.ik-tabs .ik-tab-btns .ik-tab-btn{
+	float: left;
+	line-height: 40px;
+	
+	cursor: pointer;
+}
+.ik-tabs .ik-tab-btns .ik-tab-btn.active{
+	background: #999;
+	color: #fff;
+}
+.ik-tabs .ik-tab-panels{
+	clear: both;
+	padding: 10px 0px;
 }

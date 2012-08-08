@@ -1,7 +1,8 @@
 <?php
 
 
-	
+// load the internetkultur framework
+require_once("ik-framework/shortcodes.php");	
 	
 add_theme_support( 'post-thumbnails',array('post','page') );
 add_post_type_support('page', 'excerpt');
@@ -117,6 +118,9 @@ function ik_script($script,$url,$deps=array(),$ver=null,$footer=false){
 	wp_register_script( $script, $url,$deps,$ver,$footer);
     wp_enqueue_script( $script );
 }
+
+
+
 
 
 ?>
